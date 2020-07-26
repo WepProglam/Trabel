@@ -1,3 +1,4 @@
+
 body {
     background-image: url('background.jpg');
     background-repeat: no-repeat;
@@ -58,3 +59,4 @@ input[type=submit] {
     width: 100px;
     border-radius: 10px;
 }
+

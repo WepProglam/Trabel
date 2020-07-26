@@ -1,0 +1,35 @@
+body {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color:rgb(214, 206, 206);
+}
+
+#title {
+    font-size:60px;
+    text-align:center;
+    margin-top:10%;
+}
+
+p {
+    margin-top:10%;
+    text-align:center;
+}
+
+.input_place {
+    width:500px;
+    height:30px;
+    text-align:center;
+    background-color: rgba(0,0,0,0.1);
+    color:rgb(214, 206, 206);
+    border:2px solid rgb(214, 206, 206);
+}
+
+.input_days {
+    width:500px;
+    text-align:center;
+}

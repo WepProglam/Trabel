@@ -2,18 +2,24 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="1_trabel.css">
 </head>
 <body>
-    <div>
-        <h1>Trabel</h1>
+    <div id="title">
+        <h1>TR AB EL</h1>
     </div>
 
     <div>
         <form action="" method="get">
-            <input type="text" placeholder="놀러갈 곳 입력">
-            <input type="submit">
-            <input type="range" min="0" max="10">
-            <input type="submit">
+            <p class ="place">
+                <input type="text" id="ngi" placeholder="놀러갈 곳 입력" >
+                <input type="submit" value="확인">
+            </p>    
+            <p class = "date">
+                <input type="range" name="amountRange" min="0" max="10" value="0" oninput="this.form.amountInput.value=this.value" />
+                <input type="number" name="amountInput" min="0" max="10" value="0" oninput="this.form.amountRange.value=this.value" />박 
+                <input type="submit" value="확인">
+            </p>
         </form>
     </div>
 </body>

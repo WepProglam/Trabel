@@ -1,26 +1,39 @@
 <!doctype>
 <html>
+
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="1_trabel.css">
 </head>
+
 <body>
     <div id="title">
-        <h1>TR AB EL</h1>
+
+        <a href="1_trabel.html">
+            <h1>TRABEL</h1>
+        </a>
+
     </div>
 
-    <div>
+    <div class="input">
         <form action="" method="get">
-            <p class ="place">
-                <input type="text" id="ngi" placeholder="놀러갈 곳 입력" >
-                <input type="submit" value="확인">
-            </p>    
-            <p class = "date">
-                <input type="range" name="amountRange" min="0" max="10" value="0" oninput="this.form.amountInput.value=this.value" />
-                <input type="number" name="amountInput" min="0" max="10" value="0" oninput="this.form.amountRange.value=this.value" />박 
-                <input type="submit" value="확인">
+
+            <p>
+                <input type="text" class="input_place" placeholder="놀러갈 곳 입력">
+            </p>
+            <br>
+            <p>
+                <input type="range" class="input_days" min="0" max="10" value="0">
+                <br>
+            </p>
+            <p>
+                설정이 완료되었으면 아래 버튼을 눌러주세요.
+                <br>
+                <a href="2_trabel.html"><input type="submit" value="제출"></a>
+
             </p>
         </form>
     </div>
 </body>
+
 </html>

@@ -1,59 +1,62 @@
-#title { font-size: 40px;
-    font-family: "Times New Roman", Times, serif;
+
+body {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+    color:rgb(214, 206, 206);
+}
+
+#title {
+    font-size:60px;
     text-align:center;
-    margin-top: 100px;
-    color:rgb(16, 45, 107);
+    margin-top:10%;
 }
 
-.place {text-align: center;
-        margin-bottom: 50px;
-
+p {
+    text-align:center;
+    color:rgb(214, 206, 206);
 }
 
-.date {text-align: center;}
-
-#ngi {width:500px; height:40px;
-    border-radius: 11px;
-    border: 2px solid #3d2104;
-}
-
-input:focus {
-  outline:none;
+.input_place {
+    width:50%;
+    height:30px;
+    margin-top:0%;
+    text-align:center;
+    background-color: rgba(0,0,0,0.1);
+    color:rgb(214, 206, 206);
+    font-size: 20px;
+    border:2px solid rgb(214, 206, 206);
 }
 
 input[type=range] {
-    -webkit-appearance: none; 
-    width: 300px; 
-    height: 3px;
-    background: #3d2104; 
-    cursor: pointer;
-    border-radius: 0;
-  }
-
-  input[type=range]:focus {
-    outline: none; 
-  }
-
-  input[type=range]::-webkit-slider-thumb{
     -webkit-appearance: none;
-    width: 12px;
-    height: 12px;
-    background: #fff;
-    border: 1px solid #3d2104;
-    border-radius:50%;
+    background: transparent;
+    margin-top:5%;
+    margin-bottom:5%;
+    width:50%;
+    border: 2px solid rgb(214, 206, 206);
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height:30px;
+    width: 16px;
+    border-radius: 3px;
+    background: rgb(214, 206, 206);
     cursor: pointer;
-  }
-
-input[type=number] {
-  border:none;
-  width:28px;
-
 }
+
 input[type=submit] {
-    position: relative;
-    height: 39px; 
-    top: 1px;
-    border:none;
-    border-radius: 11px;
-    border: none;
+    -webkit-appearance: none;
+    background-color: rgb(214, 206, 206);
+    margin-top: 2%;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
 }
+

@@ -1,12 +1,12 @@
 const indexList={
 
     setMapVisible : function(){
-        var mapImage=document.querySelector('img');
+        var mapImage=document.querySelector('#map');
         mapImage.style.opacity=0.95;
     },
 
     setExplainVisible : function(){
-        var expain=document.querySelector('#explain');
+        var expain=document.querySelector('#menu_wrap');
         expain.style.opacity=0.95;
     },
 
@@ -16,12 +16,12 @@ const indexList={
     },
 
     setMapInVisible : function(){
-        var mapImage=document.querySelector('img');
+        var mapImage=document.querySelector('#map');
         mapImage.style.opacity=0;
     },
 
     setExplainInVisible : function(){
-        var expain=document.querySelector('#explain');
+        var expain=document.querySelector('#menu_wrap');
         expain.style.opacity=0;
     },
 
@@ -42,14 +42,14 @@ function setVisible(self){
         listArray.pop();
         indexList.setMapInVisible();
         indexList.setExplainInVisible();
-        indexList.setExplainTextInVisible();
+
         
     }
     else{
         listArray.push(number);
         indexList.setMapVisible();
         indexList.setExplainVisible();
-        indexList.setExplainTextVisible();
+
     }
 
 }

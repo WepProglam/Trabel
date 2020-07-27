@@ -27,9 +27,11 @@ body{
 /*버튼, 지도, 설명란 감싼 박스*/
 .wrap{
     display: grid;
-    width:100%;
+    width:80%;
+    margin-left: 10%;
     align-content: center;
-    background-color: rgb(214, 206, 206,0);
+    position: center;
+    background-color: rgb(214, 206, 206, 0);
     grid-template-columns: 1fr 5fr 1fr;
 }
 
@@ -51,11 +53,12 @@ body{
 
 button{
     background-color: rgba(255, 255, 255, 0.3);
-    border: none;
+    border: 1px solid rgb(214, 206, 206);
+    border-right: none;
     height:100%;
     width:100%;
     color: white;
-    border-radius: 8px;
+    border-radius: 0px;
 }
 
 /*지도*/
@@ -65,7 +68,9 @@ img{
 
 /*설명*/
 .explain{
-    border-radius: 8px;
+    border: 1px solid rgb(214, 206, 206);
+    border-left: none;
+    border-radius: 0px;
     color: white;
     width:100%;
 }

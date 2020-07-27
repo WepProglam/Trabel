@@ -11,9 +11,8 @@ a {
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
-    color:BF1C1C;
-    
-};
+    color:rgb(123, 200, 226);
+}
 
 
 h1{
@@ -84,11 +83,11 @@ body{
 
 
 button{
-    background-color: FFE4CF;
+    background-color: rgb(255, 254, 254);
     border: none;
     height:100%;
     width:100%;
-    color: white;
+    color: rgb(123, 200, 226);
     opacity: 0.95;
 }
 
@@ -102,7 +101,7 @@ img{
 .explain{
 
     color: rgba(109, 89, 89, 1);
-    background-color: rgba(109, 89, 89, 0.1);
+    background-color: rgb(250, 250, 250);
     width:100%;
 }
 

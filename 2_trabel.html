@@ -5,15 +5,25 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="2_trabel.css">
-
+    <script src="colors.js"></script>
 </head>
 
 <body>
-    <div class="titleBox">
-        <span class="title">
-            <a href="1_trabel.html">TRABEL</a>
-        </span>
+    <div id="button">
+        <Input id="night_day" type="button" value="DARK" onclick="
+          lightDarkHandler(this);
+        ">
     </div>
+
+    <div id="title">
+
+        <a href="1_trabel.html">
+
+            <h1>TRABEL</h1>
+
+        </a>
+    </div>
+
     <form action="3_trabel.html" method="get">
         <p>
             <input type="text" class="search_place" placeholder="장소 검색">

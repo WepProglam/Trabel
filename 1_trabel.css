@@ -1,17 +1,23 @@
+#button {
+    position: absolute;
+    right:0px;
+    top:0px;
+}
+
 /* 배경 */
 body {
-    background-image: url('bg_dark.jpg');
+    background-image: url('bg_light.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     background-color: rgb(90, 90, 90);
-    color: rgb(214, 206, 206);
+    color: rgb(95, 94, 94);
 }
 
 /* 제목 */
 a {
     text-decoration: none;
-    color:rgb(214, 206, 206);
+    color:rgb(123, 200, 226);
 }
 
 .title {
@@ -30,10 +36,10 @@ p {
     height:30px;
     margin-top:0%;
     text-align:center;
-    background-color: rgba(0,0,0,0.1);
-    color: rgb(214, 206, 206);
+    background-color: rgba(250,250,250,0.5);
+    color: black;
     font-size: 20px;
-    border:2px solid rgb(214, 206, 206);
+    border:2px solid lightgrey;
 }
 
 /*range*/
@@ -42,16 +48,16 @@ input[type=range] {
     background: transparent;
     margin-top:5%;
     margin-bottom:5%;
-    border: 2px solid rgb(214, 206, 206);
+    border: 2px solid lightgrey;
 }
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    border: 1px solid #000000;
+    border: 1px solid lightgrey;
     height:30px;
     width: 16px;
     border-radius: 3px;
-    background: rgb(214, 206, 206);
+    background: lightgrey;
     cursor: pointer;
 }
     
@@ -65,7 +71,7 @@ input[type=number] {
     bottom:10px;
     height: 34px;
     width: 30px;
-    color:rgb(214, 206, 206);
+    color:grey;
     background-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(214, 206, 206);
     text-align: center;

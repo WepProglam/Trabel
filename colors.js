@@ -5,7 +5,7 @@ const Buttons = {
       buttons.item(i).style.backgrounColor = color;
     }
 
-    var links = document.querySelectorAll('h2');
+    var links = document.querySelectorAll('h1');
     for (var i = 0; i < links.length; i++) {
       links.item(i).style.color = color;
     }

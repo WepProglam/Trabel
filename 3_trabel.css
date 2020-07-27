@@ -12,12 +12,11 @@ a {
     margin-top: 10px;
     margin-bottom: 20px;
     color:BF1C1C;
-    
-};
+}
 
 
 h1{
-
+    width:100%;
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -115,6 +114,6 @@ img{
 
 p{
     opacity: 1;
-    transition: opacity 200ms linear 250ms
+    transition: opacity 200ms linear 0ms
 }
 

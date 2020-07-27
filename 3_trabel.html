@@ -36,14 +36,12 @@
 
         </div>
         <div class="wrap" >
-            <div class="navbar" id="index_list" value='0' onclick="
-                setVisible(this);
-                " >
-                <button id='1' class="index btn btn-secondary active"><h1>1일차</h1></button>
-                <button id='2' class="index btn btn-secondary active"><h1>2일차</h1></button>
-                <button id='3' class="index btn btn-secondary active"><h1>3일차</h1></button>
-                <button id='4' class="index btn btn-secondary active"><h1>4일차</h1></button>
-                <button id='5' class="index btn btn-secondary active"><h1>5일차</h1></button>
+            <div class="navbar" id="index_list" value='0' >
+                <button  class="index btn btn-secondary active"><h1 id='1' onclick="setVisible(this);">1일차</h1></button>
+                <button  class="index btn btn-secondary active"><h1 id='2' onclick="setVisible(this);">2일차</h1></button>
+                <button class="index btn btn-secondary active"><h1 id='3'  onclick="setVisible(this);">3일차</h1></button>
+                <button class="index btn btn-secondary active"><h1  id='4' onclick="setVisible(this);">4일차</h1></button>
+                <button  class="index btn btn-secondary active"><h1 id='5' onclick="setVisible(this);">5일차</h1></button>
             </div>
 
             <div class="map" id="map">

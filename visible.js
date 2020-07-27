@@ -31,24 +31,27 @@ const indexList={
     },
 
 }
+let listArray= new Array();
 
 function setVisible(self){
+    let number=self.getAttribute('id');
+
     const list=document.querySelector('#index_list');
-    if (list.getAttribute('value')==="1"){
-        
-        list.setAttribute('value','0');
+    
+    if (number===listArray[listArray.length-1]){
+        listArray.pop();
         indexList.setMapInVisible();
         indexList.setExplainInVisible();
         indexList.setExplainTextInVisible();
         
     }
     else{
-
-        list.setAttribute('value','1');
+        listArray.push(number);
         indexList.setMapVisible();
         indexList.setExplainVisible();
         indexList.setExplainTextVisible();
     }
+
 }
 
 

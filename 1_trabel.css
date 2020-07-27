@@ -1,4 +1,4 @@
-
+/* 배경 */
 body {
     background-image: url('bg_dark.jpg');
     background-repeat: no-repeat;
@@ -8,6 +8,7 @@ body {
     color: rgb(214, 206, 206);
 }
 
+/* 제목 */
 a {
     text-decoration: none;
     color:rgb(214, 206, 206);
@@ -23,10 +24,7 @@ p {
     text-align:center;
 }
 
-.range {
-    text-align:center;
-}
-
+*/장소 검색창*/
 .input_place {
     width:50%;
     height:30px;
@@ -38,6 +36,7 @@ p {
     border:2px solid rgb(214, 206, 206);
 }
 
+/*range*/
 input[type=range] {
     -webkit-appearance: none;
     background: transparent;
@@ -55,7 +54,12 @@ input[type=range]::-webkit-slider-thumb {
     background: rgb(214, 206, 206);
     cursor: pointer;
 }
+    
+.range {
+    text-align:center;
+}
 
+/*range 스크롤에 달라지는 number*/
 input[type=number] {
     position: relative;
     bottom:10px;
@@ -74,12 +78,14 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
+/*박 글자*/
 .days {
     font-size: 20px;
     bottom: 10px;
     position: relative;
 }
 
+/*제출 버튼*/    
 input[type=submit] {
     -webkit-appearance: none;
     background-color: rgb(214, 206, 206);
@@ -89,6 +95,7 @@ input[type=submit] {
     border-radius: 10px;
 }
 
+/*전체 outline 제거*/    
 input:focus {
     outline:none;
 }

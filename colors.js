@@ -5,7 +5,7 @@ const Buttons = {
       buttons.item(i).style.backgrounColor = color;
     }
 
-    var links = document.querySelectorAll('h2');
+    var links = document.querySelectorAll('h1');
     for (var i = 0; i < links.length; i++) {
       links.item(i).style.color = color;
     }
@@ -31,10 +31,10 @@ function lightDarkHandler(self) {
   var pre_type = self.value;
 
   if (pre_type === 'DARK') {
-    Body.setColor('lightgrey');
+    Body.setColor('black');
     document.body.style.backgroundImage = "url('bg_dark.jpg')";
     Buttons.setColor('lightgrey');
-    Buttons.setBgColor('grey');
+    Buttons.setBgColor('white');
     self.value = 'LIGHT';
   }
   else {

@@ -11,12 +11,12 @@ a {
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
-    color:rgb(123, 200, 226);
+    color:BF1C1C;
 }
 
 
 h1{
-
+    width:100%;
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -84,11 +84,11 @@ body{
 
 
 button{
-    background-color: rgb(255, 254, 254);
+    background-color: white;
     border: none;
     height:100%;
     width:100%;
-    color: rgb(123, 200, 226);
+    color: BF1C1C;
     opacity: 0.95;
     font-size:15px;
 
@@ -98,7 +98,7 @@ button{
 img{
     width: 100%;
     opacity: 0;
-    transition: opacity 400ms linear 50ms
+    transition: opacity 400ms linear 0ms
 }
 
 /*설명*/
@@ -107,12 +107,12 @@ img{
     background-color: white;
     width:100%;
     opacity: 0;
-    transition: opacity 400ms linear 450ms
+    transition: opacity 200ms linear 0ms
 
 }
 
 p{
     opacity: 1;
-    transition: opacity 400ms linear 450ms
+    transition: opacity 200ms linear 0ms
 }
 

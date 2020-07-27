@@ -4,59 +4,46 @@
 <head>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+
     <link rel="stylesheet" href="3_trabel.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
 
 
 
 </head>
 
 <body>
-    <div class="titleBox">
-        <span class="title">
-            TRABEL
-        </span>
+    <div id="title">
+
+        <a href="1_trabel.html">
+
+            <h1>TRABEL</h1>
+
+        </a>
     </div>
+
     <br>
     <br>
     <br>
     <br>
     <br>
+
+
+    <nav class="navbar" id="index_list">
+        <button id='1' class="index btn btn-secondary active">1일차</button>
+        <button id='2' class="index btn btn-secondary active">2일차</button>
+        <button id='3' class="index btn btn-secondary active">3일차</button>
+        <button id='4' class="index btn btn-secondary active">4일차</button>
+        <button id='5' class="index btn btn-secondary active">5일차</button>
+    </nav>
+
 
     <div class="foot">
-        <div class="profile">
-            <div class="index_list" id="index_list">
-                <div>
-                    <button id='1' class="index btn btn-secondary active">1일차</button>
-                </div>
-                <div>
-                    <button id='2' class="index btn btn-secondary active">2일차</button>
-                </div>
-                <div>
-                    <button id='3' class="index btn btn-secondary active">3일차</button>
-                </div>
-                <div>
-                    <button id='4' class="index btn btn-secondary active">4일차</button>
-                </div>
-                <div>
-                    <button id='5' class="index btn btn-secondary active">5일차</button>
-                </div>
-            </div>
 
-        </div>
         <div class="wrap">
 
-            
+
 
             <div class="map" id="map">
                 <img src="SmartSelectImage_2020-07-27-02-06-53.png" alt="">
@@ -66,7 +53,7 @@
                 <h4 id="explain" style="text-align: center;color: black;visibility: hidden;">course sequence</h4>
             </div>
 
-            
+
 
         </div>
 
@@ -75,13 +62,13 @@
 
 
     <script>
-        
-        let parent=document.getElementById('index_list');
-        const length=parent.children.length;
+
+        let parent = document.getElementById('index_list');
+        const length = parent.children.length;
         let explain = document.getElementById('explain');
-        let eventArray= new Array;
-        for (let i =1;i<length+1;i++) {
-      
+        let eventArray = new Array;
+        for (let i = 1; i < length + 1; i++) {
+
             let indexList = document.getElementById(i);
             indexList.addEventListener('click', function (e) {
                 if (eventArray.includes(indexList)) {
@@ -90,7 +77,7 @@
                 }
                 else {
                     explain.setAttribute('style', 'visibility: visible;');
-                    explain.innerText=i + ' sequence';
+                    explain.innerText = i + ' sequence';
                     eventArray.pop(indexList);
                     eventArray.push(indexList);
                 }

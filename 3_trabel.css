@@ -14,7 +14,7 @@ a {
 
 /*백그라운드*/
 body{
-    background-image: url(background.jpg);
+    background-image: url(bg_dark.jpg);
     height: auto;
     background-repeat: no-repeat;
     background-position: center center;

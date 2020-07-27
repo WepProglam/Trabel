@@ -89,3 +89,6 @@ input[type=submit] {
     border-radius: 10px;
 }
 
+input:focus {
+    outline:none;
+}

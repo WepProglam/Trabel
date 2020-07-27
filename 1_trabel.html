@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div id="title">
+    <div class="title">
 
         <a href="1_trabel.html">
             <h1>TRABEL</h1>
@@ -23,14 +23,18 @@
             </p>
             <br>
             <p>
-                <input type="range" class="input_days" min="0" max="10" value="0">
+            <div class="range">
+                <input type="range" name="amountRange" class="input_days" min="0" max="10" value="0"
+                    oninput="this.form.amountInput.value=this.value">
+                <input type="number" name="amountInput" min="0" max="10" value="0"
+                    oninput="this.form.amountRange.value=this.value"> <span class="days">박</span>
                 <br>
+            </div>
             </p>
             <p>
                 설정이 완료되었으면 아래 버튼을 눌러주세요.
                 <br>
-                <a href="2_trabel.html"><input type="submit" value="제출"></a>
-
+                <input type="submit" value="확인"></a>
             </p>
         </form>
     </div>

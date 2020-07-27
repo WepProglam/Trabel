@@ -23,6 +23,10 @@ p {
     text-align:center;
 }
 
+.range {
+    text-align:center;
+}
+
 .input_place {
     width:50%;
     height:30px;
@@ -39,7 +43,6 @@ input[type=range] {
     background: transparent;
     margin-top:5%;
     margin-bottom:5%;
-    width:50%;
     border: 2px solid rgb(214, 206, 206);
 }
 
@@ -51,6 +54,30 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 3px;
     background: rgb(214, 206, 206);
     cursor: pointer;
+}
+
+input[type=number] {
+    position: relative;
+    bottom:10px;
+    height: 34px;
+    width: 30px;
+    color:rgb(214, 206, 206);
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(214, 206, 206);
+    text-align: center;
+    font-size:20px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.days {
+    font-size: 20px;
+    bottom: 10px;
+    position: relative;
 }
 
 input[type=submit] {

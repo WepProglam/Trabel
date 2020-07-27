@@ -36,3 +36,7 @@ p {
     font-size: 20px;
     border:2px solid rgb(214, 206, 206);
 }
+
+input:focus {
+    outline:none;
+}

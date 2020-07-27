@@ -1,11 +1,4 @@
-.index_list{
-    width:40%;
-    margin-left: 30%;
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-
-}
-
+/*제목 스타일*/
 a {
     text-decoration: none;
     color:rgb(214, 206, 206);
@@ -19,19 +12,10 @@ a {
 }
 
 
-
-span.title {
-    color:rgb(214, 206, 206);
-    font-size: 130px;
-}
-
-img{
-    width: 100%;
-}
-
-
-body {
-    background-image: url('background.jpg');
+/*백그라운드*/
+body{
+    background-image: url(background.jpg);
+    height: auto;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -39,57 +23,50 @@ body {
     color: rgb(214, 206, 206);
 }
 
+
+/*버튼, 지도, 설명란 감싼 박스*/
+.wrap{
+    display: grid;
+    width:100%;
+    align-content: center;
+    background-color: rgb(214, 206, 206,0);
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+/*좌측 버튼*/
 .navbar{
     display: grid;
+    grid-template-rows: repeat(5,1fr);
+    grid-gap:0;
+
+}
+
+.index_list{
+    width:40%;
+    margin-left: 30%;
+    display: grid;
     grid-template-columns: repeat(5,1fr);
-    width: 30%;
-    position: absolute;
-    top:60px;
-    right:10px;
 
 }
 
 button{
     background-color: rgba(255, 255, 255, 0.3);
-    border: 1px white solid;
+    border: none;
+    height:100%;
     width:100%;
     color: white;
     border-radius: 8px;
 }
 
-.foot{
-    border: 3px solid #193044;
-    border-top: none;
-
-    width:80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    display: grid;
-
+/*지도*/
+img{
+    width: 100%;
 }
 
-.wrap{
-
-    display: grid;
-
-    background-color: rgb(214, 206, 206,0.2);
-
-    grid-template-columns: 80% 1fr;
-}
-
+/*설명*/
 .explain{
-
+    border-radius: 8px;
+    color: white;
     width:100%;
 }
 
-.map{
-    background-color: rgb(214, 206, 206);
-}
-
-h5{
-    margin-bottom: 0px;
-}
-
-.index{
-    height: 50px;
-}

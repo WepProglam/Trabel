@@ -4,9 +4,6 @@
 <head>
     <meta charset="utf-8">
 
-
-
-
     <link rel="stylesheet" href="3_trabel.css">
 
 
@@ -23,61 +20,40 @@
         </a>
     </div>
 
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-    <nav class="navbar" id="index_list">
-        <button id='1' class="index btn btn-secondary active">1일차</button>
-        <button id='2' class="index btn btn-secondary active">2일차</button>
-        <button id='3' class="index btn btn-secondary active">3일차</button>
-        <button id='4' class="index btn btn-secondary active">4일차</button>
-        <button id='5' class="index btn btn-secondary active">5일차</button>
-    </nav>
-
-
-    <div class="foot">
-
-        <div class="wrap">
-
-
-
-            <div class="map" id="map">
-                <img src="SmartSelectImage_2020-07-27-02-06-53.png" alt="">
-            </div>
-
-            <div class="explain">
-                <h4 id="explain" style="text-align: center;color: black;visibility: hidden;">course sequence</h4>
-            </div>
-
-
-
+    <div class="wrap">
+        <div class="navbar" id="index_list">
+            <button id='1' class="index btn btn-secondary active">1일차</button>
+            <button id='2' class="index btn btn-secondary active">2일차</button>
+            <button id='3' class="index btn btn-secondary active">3일차</button>
+            <button id='4' class="index btn btn-secondary active">4일차</button>
+            <button id='5' class="index btn btn-secondary active">5일차</button>
         </div>
 
+        <div class="map" id="map">
+            <img src="SmartSelectImage_2020-07-27-02-06-53.png" alt="">
+        </div>
 
+        <div class="explain" id="explain">
+
+        </div>
     </div>
 
 
     <script>
-
         let parent = document.getElementById('index_list');
         const length = parent.children.length;
         let explain = document.getElementById('explain');
         let eventArray = new Array;
         for (let i = 1; i < length + 1; i++) {
-
             let indexList = document.getElementById(i);
             indexList.addEventListener('click', function (e) {
                 if (eventArray.includes(indexList)) {
-                    explain.setAttribute('style', 'visibility: hidden;');
+                    explain.setAttribute('style', 'border : none;');
+                    explain.innerText = '';
                     eventArray.pop(indexList);
                 }
                 else {
-                    explain.setAttribute('style', 'visibility: visible;');
+                    explain.setAttribute('style', 'border :  1px white solid;');
                     explain.innerText = i + ' sequence';
                     eventArray.pop(indexList);
                     eventArray.push(indexList);

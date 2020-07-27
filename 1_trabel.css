@@ -1,6 +1,13 @@
+/*라이트 다크*/
+#button {
+    position: absolute;
+    right:0px;
+    top:0px;
+}
+
 /* 배경 */
 body {
-    background-image: url('background.jpg');
+    background-image: url('bg_light.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -14,8 +21,7 @@ a {
     color:rgb(214, 206, 206);
 }
 
-
-#title {
+.title {
     font-size:60px;
     text-align:center;
     margin-top:10%;

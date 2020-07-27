@@ -6,12 +6,13 @@
 
     <link rel="stylesheet" href="3_trabel.css">
     <script src="colors.js"></script>
+    <script src="visible.js"></script>
 
 
 
 </head>
 
-<body>
+<body >
 
     <div id="button">
         <Input id="night_day" type="button" value="DARK" onclick="
@@ -34,13 +35,15 @@
         <div class="upperWrap">
 
         </div>
-        <div class="wrap">
-            <div class="navbar" id="index_list">
-                <button id='1' class="index btn btn-secondary active"><span>1일차</span></button>
-                <button id='2' class="index btn btn-secondary active"><span>2일차</span></button>
-                <button id='3' class="index btn btn-secondary active"><span>3일차</span></button>
-                <button id='4' class="index btn btn-secondary active"><span>4일차</span></button>
-                <button id='5' class="index btn btn-secondary active"><span>5일차</span></button>
+        <div class="wrap" >
+            <div class="navbar" id="index_list" value='0' onclick="
+                setVisible(this);
+                " >
+                <button id='1' class="index btn btn-secondary active"><h1>1일차</h1></button>
+                <button id='2' class="index btn btn-secondary active"><h1>2일차</h1></button>
+                <button id='3' class="index btn btn-secondary active"><h1>3일차</h1></button>
+                <button id='4' class="index btn btn-secondary active"><h1>4일차</h1></button>
+                <button id='5' class="index btn btn-secondary active"><h1>5일차</h1></button>
             </div>
 
             <div class="map" id="map">
@@ -48,7 +51,9 @@
             </div>
 
             <div class="explain" id="explain">
-
+                <p>
+                    schedule
+                </p>
             </div>
         </div>
         <div class="underWrap">
@@ -58,31 +63,7 @@
     </div>
 
 
-    <script>
 
-        let parent = document.getElementById('index_list');
-        const length = parent.children.length;
-        let explain = document.getElementById('explain');
-        let eventArray = new Array;
-        for (let i = 1; i < length + 1; i++) {
-            let indexList = document.getElementById(i);
-            indexList.addEventListener('click', function (e) {
-                if (eventArray.includes(indexList)) {
-
-                    explain.innerText = '';
-                    eventArray.pop(indexList);
-                }
-                else {
-
-                    explain.innerText = i + 'schedule sequence';
-                    eventArray.pop(indexList);
-                    eventArray.push(indexList);
-                }
-
-            });
-        }
-
-    </script>
 </body>
 
 </html>

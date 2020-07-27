@@ -99,7 +99,7 @@ button{
 img{
     width: 100%;
     opacity: 0;
-    transition: opacity 400ms linear 50ms
+    transition: opacity 400ms linear 0ms
 }
 
 /*설명*/
@@ -109,12 +109,12 @@ img{
     background-color: white;
     width:100%;
     opacity: 0;
-    transition: opacity 400ms linear 450ms
+    transition: opacity 200ms linear 0ms
 
 }
 
 p{
     opacity: 1;
-    transition: opacity 400ms linear 450ms
+    transition: opacity 200ms linear 250ms
 }
 

@@ -5,12 +5,20 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="3_trabel.css">
+    <script src="colors.js"></script>
 
 
 
 </head>
 
 <body>
+
+    <div id="button">
+        <Input id="night_day" type="button" value="DARK" onclick="
+          lightDarkHandler(this);
+        ">
+    </div>
+
     <div id="title">
 
         <a href="1_trabel.html">
@@ -18,28 +26,40 @@
             <h1>TRABEL</h1>
 
         </a>
+
+
     </div>
 
-    <div class="wrap">
-        <div class="navbar" id="index_list">
-            <button id='1' class="index btn btn-secondary active">1일차</button>
-            <button id='2' class="index btn btn-secondary active">2일차</button>
-            <button id='3' class="index btn btn-secondary active">3일차</button>
-            <button id='4' class="index btn btn-secondary active">4일차</button>
-            <button id='5' class="index btn btn-secondary active">5일차</button>
-        </div>
-
-        <div class="map" id="map">
-            <img src="SmartSelectImage_2020-07-27-02-06-53.png" alt="">
-        </div>
-
-        <div class="explain" id="explain">
+    <div class="main">
+        <div class="upperWrap">
 
         </div>
+        <div class="wrap">
+            <div class="navbar" id="index_list">
+                <button id='1' class="index btn btn-secondary active"><span>1일차</span></button>
+                <button id='2' class="index btn btn-secondary active"><span>2일차</span></button>
+                <button id='3' class="index btn btn-secondary active"><span>3일차</span></button>
+                <button id='4' class="index btn btn-secondary active"><span>4일차</span></button>
+                <button id='5' class="index btn btn-secondary active"><span>5일차</span></button>
+            </div>
+
+            <div class="map" id="map">
+                <img src="SmartSelectImage_2020-07-27-02-06-53.png" alt="">
+            </div>
+
+            <div class="explain" id="explain">
+
+            </div>
+        </div>
+        <div class="underWrap">
+            
+        </div>
+
     </div>
 
 
     <script>
+
         let parent = document.getElementById('index_list');
         const length = parent.children.length;
         let explain = document.getElementById('explain');
@@ -48,13 +68,13 @@
             let indexList = document.getElementById(i);
             indexList.addEventListener('click', function (e) {
                 if (eventArray.includes(indexList)) {
-                    explain.setAttribute('style', 'border : none;');
+
                     explain.innerText = '';
                     eventArray.pop(indexList);
                 }
                 else {
-                    explain.setAttribute('style', 'border :  1px white solid;');
-                    explain.innerText = i + ' sequence';
+
+                    explain.innerText = i + 'schedule sequence';
                     eventArray.pop(indexList);
                     eventArray.push(indexList);
                 }

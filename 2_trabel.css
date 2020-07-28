@@ -111,6 +111,19 @@ input:focus {
     border-top:none;
 }
 
+#preList{
+    border: 2px black solid;
 
+}
 
+div.preItem{
+    color:black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#preList{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 

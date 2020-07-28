@@ -127,9 +127,9 @@ function displayPlaces(places) {
 function getListItem(index, places) {
 
     var el = document.createElement('span'),
-    itemStr = '<span class="markerbg marker_' + index+1 +'"' + 
-                '<div class="info">' +
-                '   <h5 onclick="makealert(this);">' + places.place_name + '</h5>';
+    itemStr = '<div class="markerbg marker_' + index+1 +'">' + 
+                
+                '   <h5 onclick="makealert(this);">' + places.place_name + '</h5></div>';
 
     
 
@@ -225,8 +225,36 @@ function removeAllChildNods(el) {
         el.removeChild (el.lastChild);
     }
 }
+let indec;
 
 function makealert(self){
-    alert(self['innerText']+ '를 선택하시겠습니까?');
+    let target = document.getElementById('preList');
+    
+    let index=target.children.length+1;
+    
+    indec=index;
+
+    element = document.createElement('div'),
+        itemStr = '<div class="pre_' + index + '">'
+        + '<h5>' + self['innerText'] + '</h5>'+'</div>' ;
+    element.innerHTML=itemStr;
+    element.className='preItem';
+
+
+    let cancel=document.createElement('div'),
+        item='<button class="cancelButton" onclick="cancel(this);">X</button>';
+    
+    cancel.innerHTML=item;
+    cancel.className='cancel';
+    target.appendChild(element);
+    element.appendChild(cancel);
 
 }
+//#preList > div:nth-child(1)
+//#preList > div
+function cancel(self){
+    let target=document.querySelector('#preList > div:nth-child'+'('+indec+')'   );
+    target.remove();
+}
+
+//#preList > div:nth-child(1)

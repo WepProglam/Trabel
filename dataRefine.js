@@ -1,5 +1,4 @@
-
-
-function makealert(){
-    alert('고르시겠습니까?');
+let cancelButton = document.getElementsByClassName('cancelButton');
+for (let button in cancelButton) {
+    console.log(button);
 }

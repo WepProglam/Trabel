@@ -127,3 +127,9 @@ div.preItem{
     grid-template-columns: 1fr 1fr;
 }
 
+#setcookie{
+    border: 1px black solid;
+    height: 100px;
+    width:100px;
+    background-color: yellow;
+}

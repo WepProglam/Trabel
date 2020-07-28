@@ -225,14 +225,13 @@ function removeAllChildNods(el) {
         el.removeChild (el.lastChild);
     }
 }
-let indec;
+
 
 function makealert(self){
     let target = document.getElementById('preList');
     
     let index=target.children.length+1;
     
-    indec=index;
 
     element = document.createElement('div'),
         itemStr = '<div class="pre_' + index + '">'
@@ -248,13 +247,10 @@ function makealert(self){
     cancel.className='cancel';
     target.appendChild(element);
     element.appendChild(cancel);
-
 }
-//#preList > div:nth-child(1)
-//#preList > div
+
 function cancel(self){
-    let target=document.querySelector('#preList > div:nth-child'+'('+indec+')'   );
-    target.remove();
+    self.parentNode.parentNode.remove();
+
 }
 
-//#preList > div:nth-child(1)

@@ -53,5 +53,3 @@ function setVisible(self){
     }
 
 }
-
-

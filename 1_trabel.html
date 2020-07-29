@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="1_trabel.css">
     <script src="colors.js"></script>
+    <script src="visible_control.js"></script>
 </head>
 
 <body>
@@ -23,17 +24,18 @@
     </div>
 
     <div class="input">
-        <form action="2_trabel.html" method="get">
+        <form action="2_trabel.html" method="get" onKeyDown="if(event.keyCode == 13) {return false;}"">
             <p>
-                <input type="text" name="inputPlace" class="input_place" placeholder="놀러갈 곳 입력">
+                <input type="text" name="inputPlace" class="input_place" placeholder="여행 지역을 입력해주세요." onKeyDown= "placeBoxEvent()">
             </p>
             <br>
             <p>
-            <div class="range">
+            <div class="range" style="visibility: hidden">
                 <input type="range" name="amountRange" class="input_days" min="0" max="10" value="0"
-                    oninput="this.form.amountInput.value=this.value">
-                <input type="number" name="amountInput" min="0" max="10" value="0"
-                    oninput="this.form.amountRange.value=this.value"> <span class="days">박</span>
+                    oninput="this.form.amountOutput.value=this.value">
+                <!-- <input type="number" name="amountInput" min="0" max="10" value="0"
+                    oninput="this.form.amountRange.value=this.value"> <span class="days">박</span> -->
+                <output name="amountOutput" class="days">0</output> <span class="days">박</span>
                 <br>
             </div>
             </p>

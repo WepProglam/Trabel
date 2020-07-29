@@ -3,9 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ed99290201dd1375b0f252f3e34ceb2f&libraries=services,clusterer,drawing"></script>
     <link rel="stylesheet" href="2_trabel.css">
     <script src="colors.js"></script>
+    <script src="dataRefine.js"></script>
+
 </head>
 
 <body>
@@ -24,16 +27,29 @@
         </a>
     </div>
 
-    <form action="3_trabel.html" method="get">
-        <p>
-            <input type="text" class="search_place" placeholder="장소 검색">
-            <input type="submit" value="검색">
-        </p>
+    <form>
+        <div>
+            <input type="text" class="search_place" id="keyword" value="" placeholder="장소 검색">
+            <input type="submit" value="검색" onclick="searchPlaces(); return false;">
+        </div>
     </form>
 
-    <div id="map">
+    <div class="main">
+        <div id="map" ></div>
 
+        <div id="menu_wrap">
+            <div id="placesList"></div>
+            <div id="pagination"></div>
+        </div>
     </div>
+
+
+
+
+    <script src="kakao.js"></script>
+
+
+
 </body>
 
 </html>

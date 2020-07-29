@@ -25,5 +25,3 @@ var server=app.listen(5500,function(){
 //같은 맥락으로 js파일을 로드할 때도 ../front_js/visible.js가 아닌 front_js/visible.js
 
 app.use(express.static('public'));
-
-

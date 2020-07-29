@@ -11,7 +11,7 @@ body {
     background-position: center center;
     background-size: cover;
     background-color: rgb(90, 90, 90);
-    color: rgb(95, 94, 94);
+    color: BF1C1C;
 }
 
 /* 제목 */
@@ -65,13 +65,14 @@ input[type=range]::-webkit-slider-thumb {
     text-align:center;
 }
 
+
 /*range 스크롤에 달라지는 number*/
-input[type=number] {
+/* input[type=number] {
     position: relative;
     bottom:10px;
     height: 34px;
     width: 30px;
-    color:grey;
+    color:#BF1C1C;
     background-color: rgba(0, 0, 0, 0);
     border: 2px solid rgb(214, 206, 206);
     text-align: center;
@@ -82,7 +83,7 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
+} */
 
 /*박 글자*/
 .days {

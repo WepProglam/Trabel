@@ -7,7 +7,6 @@
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ed99290201dd1375b0f252f3e34ceb2f&libraries=services,clusterer,drawing"></script>
     <link rel="stylesheet" href="2_trabel.css">
     <script src="colors.js"></script>
-    <script src="dataRefine.js"></script>
 
 </head>
 
@@ -35,18 +34,28 @@
     </form>
 
     <div class="main">
-        <div id="map" ></div>
+        <div id="map"></div>
 
         <div id="menu_wrap">
             <div id="placesList"></div>
             <div id="pagination"></div>
         </div>
+
+        <div id="preList">
+        </div>
+        
+    </div>
+
+    <div id="cookie">
+        <button id="setcookie" onclick="getInfo();">
+            제출
+        </button>
     </div>
 
 
 
-
     <script src="kakao.js"></script>
+    <script src="dataRefine.js"></script>
 
 
 

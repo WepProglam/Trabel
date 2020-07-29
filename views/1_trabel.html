@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- css 경로는 public 폴더로 옮김-->
+    <link rel="stylesheet" href="/css/1_trabel.css">
+    <link rel="icon" type="image/png" href="image/favicon.png"/> 
+    <!-- href에 이름만 바꾸면 됨 -->
+    <script src="front_js/colors.js"></script>
+    <script src="front_js/visible_control.js"></script>
+</head>
+
+<body>
+    <div id="button">
+        <Input id="night_day" type="button" value="DARK" onclick="
+          lightDarkHandler(this);
+        ">
+    </div>
+
+    <div class="title">
+
+        <a href="1_trabel.html">
+            <h1>TRABEL</h1>
+        </a>
+
+    </div>
+
+    <div class="input">
+        <form action="/place" method="get" onKeyDown="if(event.keyCode == 13) {return false;}"">
+            <p>
+                <input type="text" name="inputPlace" class="input_place" placeholder="여행 지역을 입력해주세요." onKeyDown= "placeBoxEvent()">
+            </p>
+            <br>
+            <p>
+            <div class="range" style="visibility: hidden">
+                <input type="range" name="amountRange" class="input_days" min="0" max="10" value="0"
+                    oninput="this.form.amountOutput.value=this.value">
+                <!-- <input type="number" name="amountInput" min="0" max="10" value="0"
+                    oninput="this.form.amountRange.value=this.value"> <span class="days">박</span> -->
+                <output name="amountOutput" class="days">0</output> <span class="days">박</span>
+                <br>
+            </div>
+            </p>
+            <p>
+                설정이 완료되었으면 아래 버튼을 눌러주세요.
+                <br>
+                <input type="submit" value="확인">
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>

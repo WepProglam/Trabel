@@ -1,0 +1,71 @@
+<!doctype>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- css 경로는 public 폴더로 옮김-->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ed99290201dd1375b0f252f3e34ceb2f&libraries=services,clusterer,drawing"></script>
+    <link rel="stylesheet" href="css/2_trabel.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="front_js/colors.js"></script>
+
+</head>
+
+<body>
+    <div id="button">
+        <Input id="night_day" type="button" value="DARK" onclick="
+          lightDarkHandler(this);
+        ">
+    </div>
+
+    <div id="title">
+
+        <a href="1_trabel.html">
+
+            <h1>TRABEL</h1>
+
+        </a>
+    </div>
+
+    <form action="">
+        <div>
+            <input type="text" class="search_place" id="keyword" value="" placeholder="장소 검색">
+            <input type="submit" value="검색" onclick="searchPlaces(); return false;">
+        </div>
+    </form>
+
+    <div class="main">
+        <div id="map"></div>
+
+        <div id="menu_wrap">
+            <div id="placesList"></div>
+            <div id="pagination"></div>
+        </div>
+
+        <div id="preList">
+        </div>
+        
+    </div>
+
+    <div id="submit">
+        <a><button id="setcookie" onclick="getInfo();">
+            제출
+        </button></a>
+
+    </div>
+
+    <div id="cookie">
+        
+    </div>
+
+
+
+    <script src="front_js/kakao.js"></script>
+    <script src="front_js/dataRefine.js"></script>
+
+
+
+</body>
+
+</html>

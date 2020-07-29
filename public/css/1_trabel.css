@@ -1,0 +1,108 @@
+#button {
+    position: absolute;
+    right:0px;
+    top:0px;
+}
+
+/* 배경 */
+body {
+    background-image: url('../image/bg_light.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: rgb(90, 90, 90);
+    color: BF1C1C;
+}
+
+/* 제목 */
+a {
+    text-decoration: none;
+    color:BF1C1C;
+}
+
+.title {
+    font-size:60px;
+    text-align:center;
+    margin-top:10%;
+}
+
+p {
+    text-align:center;
+}
+
+/*장소 검색창*/
+.input_place {
+    width:50%;
+    height:30px;
+    margin-top:0%;
+    text-align:center;
+    background-color: rgba(250,250,250,0.5);
+    color: black;
+    font-size: 20px;
+    border:2px solid lightgrey;
+}
+
+/*range*/
+input[type=range] {
+    -webkit-appearance: none;
+    background: transparent;
+    margin-top:5%;
+    margin-bottom:5%;
+    border: 2px solid lightgrey;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid lightgrey;
+    height:30px;
+    width: 16px;
+    border-radius: 3px;
+    background: lightgrey;
+    cursor: pointer;
+}
+    
+.range {
+    text-align:center;
+}
+
+
+/*range 스크롤에 달라지는 number*/
+/* input[type=number] {
+    position: relative;
+    bottom:10px;
+    height: 34px;
+    width: 30px;
+    color:#BF1C1C;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(214, 206, 206);
+    text-align: center;
+    font-size:20px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+} */
+
+/*박 글자*/
+.days {
+    font-size: 20px;
+    bottom: 10px;
+    position: relative;
+}
+
+/*제출 버튼*/    
+input[type=submit] {
+    -webkit-appearance: none;
+    background-color: rgb(214, 206, 206);
+    margin-top: 2%;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+/*전체 outline 제거*/    
+input:focus {
+    outline:none;
+}

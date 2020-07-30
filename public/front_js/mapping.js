@@ -6,7 +6,9 @@ $.ajax({
     type:"get"
 }).done(function(data){
     positionData=Object.keys(data)[0];
-    $('.index').append("<span>"+positionData+"</span>");
+    let index=positionData.indexOf('\"');
+    alert(index);
+    $('.index').append("<span>"+data+"</span>");
 
 });
 

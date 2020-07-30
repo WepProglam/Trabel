@@ -7,10 +7,10 @@ $.ajax({
 }).done(function(data){
     positionData=Object.keys(data)[0];
     $('.index').append("<span>"+positionData+"</span>");
-    //console.log(positionData);
+
 });
 
-//console.log(positionData);
+
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 

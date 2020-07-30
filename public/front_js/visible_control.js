@@ -1,3 +1,5 @@
+import {Cookie} from "cookie.js";
+ 
 controlVisibility = {
     showPlaceBox : function() {
         element = document.querySelector('.input_place'); 
@@ -20,8 +22,22 @@ controlVisibility = {
     }
 };
 
+
+
+
 function placeBoxEvent(){
     if(event.keyCode == 13) {
-        controlVisibility.showDaysBox(); controlVisibility.hidePlaceBox();
+        controlVisibility.showDaysBox(); 
+        controlVisibility.hidePlaceBox();
+
+        // 위치 쿠키
+
+        
     }
 }
+
+
+// 날짜 쿠키 
+
+
+

@@ -254,37 +254,38 @@ function cancel(self) {
 
 }
 
-let travelList = new Array;
+let travelList = new Object;
 function getInfo(self) {
     var tag=$('#setcookie').val();
     if(tag=='0'){
         $('#setcookie').val('1');
     } 
     else{
-        travelList=[];
+        travelList=new Object;
     }
     let trabel = document.querySelectorAll('.travel_list');
     let length = trabel.length;
     let i = 0;
-   
-    for (i; i < length; i++) {
-        let info=new Object;
-        info.name=trabel[i]['textContent'];
-        info.xpos=trabel[i].getAttribute('xpos');
-        info.ypos=trabel[i].getAttribute('ypos');
-        travelList.push(info);
-        console.log(travelList);
-    }
+   let info=function(name,xpos,ypos){
+       this.name=name;
+       this.xpos=xpos;
+       this.ypos=ypos;
+   }
 
+    for (i; i < length; i++) {
+        let em=new info(trabel[i]['textContent'],trabel[i].getAttribute('xpos'),trabel[i].getAttribute('ypos'));
+        travelList[i]=em;
+    }
 
 
     $.ajax({
         url: '/server',
         dataType: 'json',
-        data: JSON.stringify(travelList),
+        data: (travelList),
         type:"get"
     }).done(function(data){
-        console.log(data);
+        /*console.log(data[0]);
+        console.log(data[0]['xpos']);
+        console.log(data[0]['name']);*/
     });
-
 }

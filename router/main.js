@@ -2,10 +2,11 @@ var express=require('express');
 var app=express();
 const bodyParser= require('body-parser');
 const { json } = require('body-parser');
+const { start } = require('repl');
 
 app.use(bodyParser.json());
 let data;
-
+let coor;
 module.exports=data;
 //라우팅 설정
 
@@ -32,13 +33,15 @@ module.exports=function(app)
     }),
     app.get('/show',function(req,res){
         res.send(data);
+        console.log(data.length);
     }),
     app.get('/view',function(req,res){
         res.render('4_trabel.html');
     }),
     app.all('/server',function(req,res){
         data=req.query;
-        res.send(getData(data));
+        console.log(data);
+        //res.send(getData(data));
     });
 
     
@@ -46,8 +49,29 @@ module.exports=function(app)
 
 function getData(data){
     let bar=Object.keys(data)[0];
+    let index;
+    let startIndex=0;
+    coor=new Array;
+    while(bar.indexOf('},{')>-1){
+        startIndex=0;
+        index=bar.indexOf('},{');
+        coor.push(bar.slice(startIndex,index+1));
+        //console.log(bar.slice(startIndex,index+1));
+        startIndex=index+2;
+        bar=bar.slice(startIndex,bar.length);
+        if(bar.indexOf('},{') <=-1){
+            coor.push(bar.slice(0,index+1));
+            //console.log(bar.slice(0,index+1));
+        }
 
-    console.log(bar);
+    }
+
+    /*for (let key in coor){
+        console.log(coor[key]);
+    }
+    console.log(coor);*/
+
+
     
 
     

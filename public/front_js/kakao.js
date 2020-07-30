@@ -1,5 +1,6 @@
 var markers = [];
 
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
@@ -58,25 +59,20 @@ function placesSearchCB(data, status, pagination) {
 
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
-    let upperMax;
+
     var listEl = document.getElementById('placesList'),
         menuEl = document.getElementById('menu_wrap'),
         fragment = document.createDocumentFragment(),
         bounds = new kakao.maps.LatLngBounds(),
         listStr = '';
-    if (places.length > 10) {
-        upperMax = 10;
-    }
-    else {
-        upperMax = places.length;
-    }
+
     // 검색 결과 목록에 추가된 항목들을 제거합니다
     removeAllChildNods(listEl);
 
     // 지도에 표시되고 있는 마커를 제거합니다
     removeMarker();
 
-    for (var i = 0; i < upperMax; i++) {
+    for (var i = 0; i < places.length; i++) {
 
         // 마커를 생성하고 지도에 표시합니다
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
@@ -86,6 +82,9 @@ function displayPlaces(places) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
         bounds.extend(placePosition);
+
+
+
 
         // 마커와 검색결과 항목에 mouseover 했을때
         // 해당 장소에 인포윈도우에 장소명을 표시합니다
@@ -127,9 +126,9 @@ function displayPlaces(places) {
 function getListItem(index, places) {
 
     var el = document.createElement('span'),
-        itemStr = '<div class="markerbg marker_' + index + 1 + '">' +
+        itemStr = '<div class="markerbg marker_' + index  + '">' +
 
-            '   <h5 onclick="makealert(this);">' + places.place_name + '</h5></div>';
+            '   <h5 xpos="'+ (places.x)+'" ypos="'+(places.y)+'" onclick="makealert(this);">' + places.place_name + '</h5></div>';
 
 
 
@@ -231,11 +230,12 @@ function makealert(self) {
     let target = document.getElementById('preList');
 
     let index = target.children.length + 1;
-
+    let xpos=self.getAttribute('xpos');
+    let ypos=self.getAttribute('ypos');
 
     element = document.createElement('div'),
         itemStr = '<div class="pre_' + index + '">'
-        + '<h5 class="travel_list">' + self['innerText'] + '</h5>' + '</div>';
+        + '<h5 class="travel_list" xpos="'+xpos+'" ypos="'+ypos+'">' + self['innerText'] + '</h5>' + '</div>';
     element.innerHTML = itemStr;
     element.className = 'preItem';
 
@@ -254,3 +254,37 @@ function cancel(self) {
 
 }
 
+let travelList = new Array;
+function getInfo(self) {
+    var tag=$('#setcookie').val();
+    if(tag=='0'){
+        $('#setcookie').val('1');
+    } 
+    else{
+        travelList=[];
+    }
+    let trabel = document.querySelectorAll('.travel_list');
+    let length = trabel.length;
+    let i = 0;
+   
+    for (i; i < length; i++) {
+        let info=new Object;
+        info.name=trabel[i]['textContent'];
+        info.xpos=trabel[i].getAttribute('xpos');
+        info.ypos=trabel[i].getAttribute('ypos');
+        travelList.push(info);
+        console.log(travelList);
+    }
+
+
+
+    $.ajax({
+        url: '/server',
+        dataType: 'json',
+        data: JSON.stringify(travelList),
+        type:"get"
+    }).done(function(data){
+        console.log(data);
+    });
+
+}

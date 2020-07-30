@@ -2,9 +2,9 @@
 
 <br/>
 
-1. sudo npm install node
+1. sudo npm install -g node
 2. sudo npm install express
-3. sudo npm install nodemon
+3. sudo npm install -g nodemon
 3. nodemon server.js 실행
 4. live server로 하면 아마 안될거임 
 

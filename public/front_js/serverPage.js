@@ -1,8 +1,11 @@
 
 let pos = new Object;
 let positions = [];
-
-
+let redDot=[];
+let blueDot=[];
+let dataSets=[];
+let smallData=[];
+let colorSets=['rgba(255,0,0,0.2)','rgba(0,255,0,0.2)','rgba(0,0,255,0.2)','rgb(125,125,0,0.2)','rgba(125,0,125,0.2)','rgba(0,125,125,0.2)','rgba(255,75,75,0.2)'];
 $.ajax({
     url: '/show',
     dataType: 'json',
@@ -13,27 +16,30 @@ $.ajax({
 })
     .always(function () {
         console.log('load success');
-    })
+    });
+
+
+
+let infoNum=10;
+
+
 
 
 makeTag(pos);
 //이미지에 태그 삽입
 function makeTag(pos) {
-    let Block = function (name, latlng,index) {
+    let Block = function (name, latlng, index) {
         this.title = name;
         this.latlng = latlng;
-        this.index=index;
+        this.index = index;
     }
-    for (let i = 0; i < 30; i++) {
-        let latlng = new kakao.maps.LatLng(Math.random() * (1.25) + 33, Math.random() * (1.4) + 126.4);
+    for (let i = 0; i < infoNum; i++) {
+        let latlng = new kakao.maps.LatLng(Math.random() * (2) + 33, Math.random() * (2) + 126.4);
         let name = 'name';
-        let item = new Block(name, latlng,i);
+        let item = new Block(name, latlng, i);
         positions.push(item);
     }
 
-    for (let key in positions) {
-        //console.log(positions[key]);
-    }
     makingTag(positions);
     drawGraph(positions);
 }
@@ -68,7 +74,7 @@ function makingTag(positions) {
         var marker = new kakao.maps.Marker({
             map: map, // 마커를 표시할 지도
             position: positions[i].latlng, // 마커를 표시할 위치
-            title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+            title: positions[i].index, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
             //image: markerImage // 마커 이미지 
         });
 
@@ -76,6 +82,33 @@ function makingTag(positions) {
     }
 }
 
+function makeGraphData(blueData,k,label){
+    let omg;
+    smallData.push(blueData);
+    let length=blueData['subCounting'];
+    for(let i=0;i<length;i++){
+        smallData.push(blueData['sub'][i]);
+    }
+    //console.log(smallData);
+    omg=new makeData(label,smallData,k);
+    makeDataSet(omg);
+    smallData=[];
+}
+
+function makeData(label,data,k){
+    this.label=label;
+    this.data=data;
+    this.fill=false;
+    this.showLine=false;
+    //console.log(k);
+    k=k%6;
+    this.pointBackgroundColor=colorSets[k];
+}
+
+function makeDataSet(item){
+    //console.log(dataSets);
+    dataSets.push(item);
+}
 
 //그래프 ui (알고리즘과 무관)
 function drawGraph(positions) {
@@ -86,30 +119,34 @@ function drawGraph(positions) {
         let obj = new Object;
         obj.x = positions[key]['latlng']['Ga'];
         obj.y = positions[key]['latlng']['Ha'];
-        obj.index=positions[key]['index'];
+        obj.index = positions[key]['index'];
         db.push(obj);
     }
+    
 
     let db2 = db;
     db2 = sort(db2);
 
+    /*dataSets=[{
+        label: 'Scatter Dataset',
+        data: db,
+        fill: false,
+        showLine: false,
+        pointBackgroundColor: 'red'
+
+    }, {
+        label: 'Scatter Dataset',
+        data: db2,
+        fill: false,
+        showLine: false,
+        pointBackgroundColor: 'blue'
+    }];*/
+    console.log(dataSets);
+    let inputData=dataSets;
     let scatterChart = new Chart(ctx, {
         type: 'scatter',
         data: {
-            datasets: [{
-                label: 'Scatter Dataset',
-                data: db,
-                fill: false,
-                showLine: false,
-                pointBackgroundColor: 'red'
-
-            }, {
-                label: 'Scatter Dataset',
-                data: db2,
-                fill: false,
-                showLine: false,
-                pointBackgroundColor: 'blue'
-            }],
+            datasets: inputData
         },
         options: {
             scales: {
@@ -121,7 +158,7 @@ function drawGraph(positions) {
             },
             layout: {
                 padding: {
-                    left: 50,
+                    left: 0,
                     right: 0,
                     top: 0,
                     bottom: 0
@@ -136,10 +173,18 @@ function drawGraph(positions) {
 //ㅂㄹㄲㅈ 알고리즘 (모든 점을 포함하는 다각형 그리기)
 
 //점 객체 생성자 함수
-function makeDot(key, obj) {
+function makeDot(key, obj,subthings) {
     this.x = obj[key]['x'];
     this.y = obj[key]['y'];
-    this.index=obj[key]['index'];
+    this.index = obj[key]['index'];
+    this.sub=[];
+    if (subthings>0){
+        this.subCounting=subthings;
+    }
+    else{
+        this.subCounting=0;
+    }
+    
 }
 
 
@@ -176,13 +221,12 @@ function sort(db2) {
         db3.push(dot2);
         dot3 = new makeDot(seq[i]['index'], db2);
         if (ccw(dot1, dot2, dot3) > 0) {
-
             db3.push(dot3);
         }
         else {
             j = i;
             while (ccw(dot1, dot2, dot3) <= 0) {
-                db3.pop();
+                redDot.push(db3.pop());
                 dot2 = db3.pop();
                 dot1 = db3.pop();
                 db3.push(dot1);
@@ -193,9 +237,32 @@ function sort(db2) {
         }
         i++;
     }
-    //console.log(db3);
+    blueDot=db3;
+
+    console.log('<blueDot output>');
+    console.log(blueDot);
+    console.log('\n');
+    console.log('=======================================');
+    console.log('<redDot output>');
+    console.log(redDot);
+    findAndMergeNearestBlue();
+    let iten={
+        label: 'Border',
+        data: blueDot,
+        fill: false,
+        showLine: false,
+        pointBackgroundColor: 'rgba(0, 0, 0,1)'
+    };
+    dataSets.push(iten);
+    for(let key in blueDot){
+        //console.log(key);
+        //console.log(blueDot[key]);
+        makeGraphData(blueDot[key],key,"seperate_" + key);
+    }
+    
     return db3;
 }
+
 
 //ccw 계산을 통해 비교 순서 결정
 function findSeq(startDot, db2) {
@@ -256,4 +323,36 @@ function ccw(dot1, dot2, dot3) {
     } else {
         return 0;
     }
+}
+
+function findAndMergeNearestBlue(){
+    let dis;
+    function makeMerge(distance,redIndex,blueIndex){
+        this.distance=distance;
+        this.redIndex=redIndex;
+        this.blueIndex=blueIndex;
+    }
+    let short;
+    let subCount;
+    for(let key in redDot){
+        dis=new makeMerge(displace(redDot[key],blueDot[0]),key,0);
+        for(let index in blueDot){
+            short=displace(redDot[key],blueDot[index]);
+            if(short<=dis.distance){
+                dis=new makeMerge(displace(redDot[key],blueDot[index]),key,index);
+            }
+        }
+        subCount=(blueDot[dis.blueIndex]['sub']).length+1;
+        let block=new makeDot(dis.redIndex,redDot);
+        //console.log(block);
+        blueDot[dis.blueIndex]['subCounting']=subCount;
+        blueDot[dis.blueIndex]['sub'].push(block);
+    }
+    //console.log(blueDot);
+}
+
+function displace(red,blue){
+    let distance=Math.pow((red['x']-blue['x']),2)+Math.pow((red['y']-blue['y']),2);
+    //console.log(distance);
+    return distance;
 }

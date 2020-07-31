@@ -9,9 +9,11 @@
     <!-- href에 이름만 바꾸면 됨 -->
     <script src="front_js/colors.js"></script>
     <script src="front_js/mainPage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
+    
     <div id="button">
         <Input id="night_day" type="button" value="DARK" onclick="
           lightDarkHandler(this);
@@ -20,14 +22,14 @@
 
     <div class="title">
 
-        <a href="1_trabel.html">
+        <a href="/">
             <h1>TRABEL</h1>
         </a>
 
     </div>
 
     <div class="input">
-        <form action="/place" method="get" onKeyDown="if(event.keyCode == 13) {return false;}"">
+        <form action="/place" method="get" onKeyDown="if(event.keyCode == 13) {return false;}" onsubmit="Cookie()">
             <p>
                 <input type="text" name="inputPlace" class="input_place" placeholder="여행 지역을 입력해주세요." onKeyDown= "placeBoxEvent()">
             </p>

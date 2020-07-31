@@ -41,17 +41,17 @@ p {
     text-align:center;
 }
 
-
 .search_place {
-    width:50%;
+    width: 50%;
     height:30px;
     margin-top:10%;
     margin-left: 25%;
     text-align:center;
+    border:2px solid black;
     background-color: rgba(0,0,0,0.1);
     color: black;
     font-size: 20px;
-    border:2px solid black;
+
 }
 
 input:focus {
@@ -133,3 +133,4 @@ div.preItem{
     width:100px;
     background-color: yellow;
 }
+

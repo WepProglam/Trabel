@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/1_trabel.css">
     <link rel="icon" type="image/png" href="image/favicon.png"/> 
     <!-- href에 이름만 바꾸면 됨 -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="front_js/colors.js"></script>
     <script src="front_js/mainPage.js"></script>
 </head>
@@ -21,14 +20,14 @@
 
     <div class="title">
 
-        <a href="/">
+        <a href="1_trabel.html">
             <h1>TRABEL</h1>
         </a>
 
     </div>
 
     <div class="input">
-        <form action="" method="get" onKeyDown="if(event.keyCode == 13) {return false;}"">
+        <form action="/place" method="get" onKeyDown="if(event.keyCode == 13) {return false;}"">
             <p>
                 <input type="text" name="inputPlace" class="input_place" placeholder="여행 지역을 입력해주세요." onKeyDown= "placeBoxEvent()">
             </p>
@@ -46,7 +45,7 @@
             <p>
                 설정이 완료되었으면 아래 버튼을 눌러주세요.
                 <br>
-                <input onclick="Cookie();" type="submit" value="확인">
+                <input type="submit" value="확인">
             </p>
         </form>
     </div>

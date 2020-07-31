@@ -277,15 +277,16 @@ function getInfo(self) {
         travelList[i]=em;
     }
 
-
     $.ajax({
         url: '/server',
         dataType: 'json',
         data: (travelList),
         type:"get"
     }).done(function(data){
-        /*console.log(data[0]);
-        console.log(data[0]['xpos']);
-        console.log(data[0]['name']);*/
+        console.log('submit success');
     });
+    
+
+
+  
 }

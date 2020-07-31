@@ -33,15 +33,12 @@ module.exports=function(app)
     }),
     app.get('/show',function(req,res){
         res.send(data);
-        console.log(data.length);
     }),
     app.get('/view',function(req,res){
         res.render('4_trabel.html');
     }),
     app.all('/server',function(req,res){
         data=req.query;
-        console.log(data);
-        //res.send(getData(data));
     });
 
     

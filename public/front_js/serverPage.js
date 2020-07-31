@@ -17,21 +17,22 @@ $.ajax({
 
 
 makeTag(pos);
-
+//이미지에 태그 삽입
 function makeTag(pos) {
-    let Block = function (name, latlng) {
+    let Block = function (name, latlng,index) {
         this.title = name;
         this.latlng = latlng;
+        this.index=index;
     }
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {
         let latlng = new kakao.maps.LatLng(Math.random() * (1.25) + 33, Math.random() * (1.4) + 126.4);
         let name = 'name';
-        let item = new Block(name, latlng);
+        let item = new Block(name, latlng,i);
         positions.push(item);
     }
 
     for (let key in positions) {
-        console.log(positions[key]);
+        //console.log(positions[key]);
     }
     makingTag(positions);
     drawGraph(positions);
@@ -75,6 +76,8 @@ function makingTag(positions) {
     }
 }
 
+
+//그래프 ui (알고리즘과 무관)
 function drawGraph(positions) {
     let ctx = document.getElementById('myChart').getContext('2d');
     let db = [];
@@ -83,6 +86,7 @@ function drawGraph(positions) {
         let obj = new Object;
         obj.x = positions[key]['latlng']['Ga'];
         obj.y = positions[key]['latlng']['Ha'];
+        obj.index=positions[key]['index'];
         db.push(obj);
     }
 
@@ -131,19 +135,27 @@ function drawGraph(positions) {
 
 //ㅂㄹㄲㅈ 알고리즘 (모든 점을 포함하는 다각형 그리기)
 
+//점 객체 생성자 함수
 function makeDot(key, obj) {
-    //console.log(obj[key]['x']);
     this.x = obj[key]['x'];
     this.y = obj[key]['y'];
+    this.index=obj[key]['index'];
 }
 
+
+//메인 함수
+/*
+db2의 형식
+[
+    {x: example, y: example, index: example},
+]
+*/
 function sort(db2) {
 
     let yarray = [];
     let seq = [];
     let db3 = [];
     let dot1, dot2, dot3;
-
 
 
     for (let key in db2) {
@@ -162,9 +174,7 @@ function sort(db2) {
         dot1 = db3.pop();
         db3.push(dot1);
         db3.push(dot2);
-
         dot3 = new makeDot(seq[i]['index'], db2);
-        //console.log(dot1, dot2, dot3);
         if (ccw(dot1, dot2, dot3) > 0) {
 
             db3.push(dot3);
@@ -172,22 +182,22 @@ function sort(db2) {
         else {
             j = i;
             while (ccw(dot1, dot2, dot3) <= 0) {
-                //console.log('뒤로가기');
                 db3.pop();
                 dot2 = db3.pop();
                 dot1 = db3.pop();
                 db3.push(dot1);
                 db3.push(dot2);
                 dot3 = new makeDot(seq[j]['index'], db2);
-                //console.log(dot1, dot2, dot3);
             }
             db3.push(dot3);
         }
         i++;
     }
+    //console.log(db3);
     return db3;
 }
 
+//ccw 계산을 통해 비교 순서 결정
 function findSeq(startDot, db2) {
     let arcTan = [];
     let minusTan = [];
@@ -200,7 +210,7 @@ function findSeq(startDot, db2) {
             cal = -0.000000000000000000000000000001;
         }
         let block = new Object;
-        block.index = key;
+        block.index = db2[key]['index'];
         block.cal = cal;
         arcTan.push(block);
     }
@@ -227,7 +237,7 @@ function findSeq(startDot, db2) {
     arcTan = plusTan.concat(minusTan);
 
 
-    console.log(arcTan);
+    //console.log(arcTan);
 
     return arcTan;
 }

@@ -1,7 +1,3 @@
-function defaultPlace(name) {
-    $('.search_place').val(name);
-}
-
 getCookie = function(name) {
     var i, x, y, ARRcookies = document.cookie.split(";");
     
@@ -18,3 +14,7 @@ getCookie = function(name) {
 }
 
 let place = getCookie('place');
+
+function defaultPlace(name) {
+    $('input.search_place').val(name);
+}

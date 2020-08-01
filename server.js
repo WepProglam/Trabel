@@ -16,9 +16,9 @@ app.engine('html', require('ejs').renderFile);
 
 
 
-//서버의 주소를 http://127.0.0.1:5500/로 설정하겠다는 뜻
-app.listen(5500, function () {
-    console.log('http://127.0.0.1:5500');
+//서버의 주소를 http://127.0.0.1:5501/로 설정하겠다는 뜻
+app.listen(5501, function () {
+    console.log('http://127.0.0.1:5501');
 });
 
 

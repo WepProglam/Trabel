@@ -4,6 +4,7 @@ const bodyParser= require('body-parser');
 const { json } = require('body-parser');
 const { start } = require('repl');
 
+
 app.use(bodyParser.json());
 let data;
 let coor;
@@ -34,7 +35,7 @@ module.exports=function(app)
     app.get('/show',function(req,res){
         res.send(data);
     }),
-    app.get('/view',function(req,res){
+    app.get('/a',function(req,res){
         res.render('4_trabel.html');
     }),
     app.all('/server',function(req,res){

@@ -4,6 +4,7 @@
 
 1. npm install
 2. nodemon server.js || npm start
+3. git push 하기 전에 .gitignore 파일에 node_module 포함되있는지 확인
 
 <br/>
 

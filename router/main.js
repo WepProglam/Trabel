@@ -3,6 +3,7 @@ var app=express();
 const bodyParser= require('body-parser');
 const { json } = require('body-parser');
 const { start } = require('repl');
+const dataSets=require('../listing/listingMain').dataSets;
 
 
 app.use(bodyParser.json());
@@ -12,7 +13,7 @@ module.exports=data;
 //라우팅 설정
 
 /*
-홈페이지 : 127.0.0.1:5500/ 또는 127.0.0.1:5500/index 
+홈페이지 : 127.0.0.1:5500/
 
 두번째 페이지 : 127.0.0.1:5500/place
 
@@ -36,6 +37,7 @@ module.exports=function(app)
         res.send(data);
     }),
     app.get('/a',function(req,res){
+        res.send(dataSets);
         res.render('4_trabel.html');
     }),
     app.all('/server',function(req,res){

@@ -1,5 +1,5 @@
 
- 
+
 controlVisibility = {
     showPlaceBox : function() {
         element = document.querySelector('.input_place'); 

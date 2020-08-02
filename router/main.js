@@ -3,13 +3,14 @@ var app=express();
 const bodyParser= require('body-parser');
 const { json } = require('body-parser');
 const { start } = require('repl');
-const dataSets=require('../listing/listingMain').dataSets;
-
+let dataSets=require('../listing/listingMain').dataSets;
 
 app.use(bodyParser.json());
 let data;
 let coor;
 module.exports=data;
+
+dataSets={'value':dataSets};
 //라우팅 설정
 
 /*
@@ -37,8 +38,7 @@ module.exports=function(app)
         res.send(data);
     }),
     app.get('/a',function(req,res){
-        res.send(dataSets);
-        res.render('4_trabel.html');
+        res.render('trabel.ejs',{dataSets});
     }),
     app.all('/server',function(req,res){
         data=req.query;

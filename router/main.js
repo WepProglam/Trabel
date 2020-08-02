@@ -8,7 +8,7 @@ let dataSets=require('../listing/listingMain').dataSets;
 app.use(bodyParser.json());
 
 let coor;
-module.exports=data;
+
 
 dataSets={'value':dataSets};
 //라우팅 설정
@@ -20,6 +20,7 @@ dataSets={'value':dataSets};
 
 세번째 페이지 : 127.0.0.1:5500/final
 */ 
+const appKey="ed99290201dd1375b0f252f3e34ceb2f";
 module.exports=function(app)
 {
 

@@ -2,18 +2,8 @@
 
 <br/>
 
-1. sudo npm install -g node
-2. sudo npm install express
-3. sudo npm install -g nodemon
-3. nodemon server.js 실행
-4. live server로 하면 아마 안될거임 
-
-    그래서 ctrl+s한다고 바로 수정 안됨. 대신 f5누르면 수정 됨.
-
-5. 서버 끄는 법 : 터미널(wsl)에서 ctrl + c
-<br/>
-
-혹시 npm이 설치 안되어있다면 구글링 참고(아마 sudo apt-get install npm)
+1. npm install
+2. nodemon server.js || npm start
 
 <br/>
 
@@ -34,4 +24,4 @@
 
 <br/>
 
-## 그래도 모르겠으면 깃허브 issue에 올려라
+그래도 모르겠으면 깃허브 issue에 올려라

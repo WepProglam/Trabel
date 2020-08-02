@@ -7,9 +7,14 @@ const dataSets=require('../listing/listingMain').dataSets;
 
 
 app.use(bodyParser.json());
-let data;
+
 let coor;
-module.exports=data;
+let sendData={
+    'data':dataSets
+};
+
+sendData=JSON.stringify(sendData);
+
 //라우팅 설정
 
 /*
@@ -37,8 +42,8 @@ module.exports=function(app)
         res.send(data);
     }),
     app.get('/a',function(req,res){
-        res.send(dataSets);
-        res.render('4_trabel.html');
+        res.render('4_trabel.html',JSON.stringify(sendData));
+        
     }),
     app.all('/server',function(req,res){
         data=req.query;
@@ -64,16 +69,6 @@ function getData(data){
             //console.log(bar.slice(0,index+1));
         }
 
-    }
-
-    /*for (let key in coor){
-        console.log(coor[key]);
-    }
-    console.log(coor);*/
-
-
-    
-
-    
+    }  
     return data;
 }

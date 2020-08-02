@@ -7,9 +7,9 @@ let dataSets=require('../listing/listingMain').dataSets;
 let appK=require('../app/appKey').appKey;
 
 app.use(bodyParser.json());
-let data;
+
 let coor;
-module.exports=data;
+
 let appKey={'key':appK};
 
 dataSets={'value':dataSets};
@@ -66,16 +66,6 @@ function getData(data){
             //console.log(bar.slice(0,index+1));
         }
 
-    }
-
-    /*for (let key in coor){
-        console.log(coor[key]);
-    }
-    console.log(coor);*/
-
-
-    
-
-    
+    }  
     return data;
 }

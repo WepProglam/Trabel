@@ -2,7 +2,7 @@
 
 <br/>
 
-1. npm install -g
+1. npm install -g --save 설치할 모듈 이름 (에러창에 뜰거임) (-g 했을때 TRABEL/package.json의 dependencies에 기입 안되면 -g 빼고해봐)
 2. 혹시 ejs가 안돌아가면 그 폴더가서 일단 npm install ejs
 3. g 옵션이 퍼미션 드립치면서 안되면 https://stackoverflow.com/questions/51811564/sh-1-node-permission-denied ㄱㄱ
 4. extensions에서 EJS language support 설치

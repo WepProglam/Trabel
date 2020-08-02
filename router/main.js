@@ -40,7 +40,7 @@ module.exports=function(app)
         res.send(data);
     }),
     app.get('/a',function(req,res){
-        res.render('trabel.ejs',{dataSets});
+        res.render('4_trabel.html',{dataSets});
     }),
     app.all('/server',function(req,res){
         data=req.query;

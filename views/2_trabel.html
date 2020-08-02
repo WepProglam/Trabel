@@ -5,15 +5,14 @@
     <meta charset="utf-8">
     <!-- css 경로는 public 폴더로 옮김-->
     <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ed99290201dd1375b0f252f3e34ceb2f&libraries=services,clusterer,drawing" ></script>
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=<%= appKey.key%>&libraries=services,clusterer,drawing" ></script>
     <link rel="stylesheet" href="/css/2_trabel.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="front_js/colors.js"></script>
-    <script src="front_js/setDefault.js"></script>
 
 </head>
 
-<body onload="defaultPlace(place)">
+<body onload="">
     <div id="button">
         <Input id="night_day" type="button" value="DARK" onclick="
           lightDarkHandler(this);
@@ -21,7 +20,6 @@
     </div>
 
     <div id="title">
-
         <a href="/">
 
             <h1>TRABEL</h1>

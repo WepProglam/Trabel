@@ -18,9 +18,9 @@ let redDot=[];
 let blueDot=[];
 let dataSets=[];
 let smallData=[];
-let colorSets=['rgba(255,0,0,0.2)','rgba(0,255,0,0.2)','rgba(0,0,255,0.2)','rgb(125,125,0,0.2)','rgba(125,0,125,0.2)','rgba(0,125,125,0.2)','rgba(255,75,75,0.2)'];
+let colorSets=['rgba(255,0,0,0.4)','rgba(0,255,0,0.4)','rgba(0,0,255,0.4)','rgb(125,125,0,0.4)','rgba(125,0,125,0.4)','rgba(0,125,125,0.4)','rgba(255,75,75,0.4)'];
 
-let infoNum=10;
+let infoNum=50;
 
 
 

@@ -7,6 +7,7 @@ var router = require('./router/main')(app);
 //따라서 router/main.js에서 보면 html파일을 로드할때 1_trabel.html로 간단히 로드
 app.set('views', __dirname + '/views');
 
+
 //ejs라는 html 해석하는 툴이 있나봄
 app.set('view engine', 'ejs');
 

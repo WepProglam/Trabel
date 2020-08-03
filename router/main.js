@@ -36,11 +36,11 @@ module.exports=function(app)
     app.get('/final',function(req,res){
         res.render('3_trabel.html',{appKey});
     }),
-    app.get('/show',function(req,res){
-        res.send(data);
-    }),
     app.get('/a',function(req,res){
-        res.render('4_trabel.html',{dataSets});
+        res.send({dataSets});
+    }),
+    app.get('/view',function(req,res){
+        res.render('4_trabel.html');
     }),
     app.all('/server',function(req,res){
         data=req.query;

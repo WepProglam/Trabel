@@ -6,19 +6,35 @@ let blueDot = [];
 let dataSets = [];
 let smallData = [];
 let colorSets = ['rgba(255,0,0,0.2)', 'rgba(0,255,0,0.2)', 'rgba(0,0,255,0.2)', 'rgb(125,125,0,0.2)', 'rgba(125,0,125,0.2)', 'rgba(0,125,125,0.2)', 'rgba(255,75,75,0.2)'];
+
+
 $.ajax({
     url: '/a',
     dataType: 'json',
     data: '',
     type: "get"
 }).done(function (data) {
-    console.log(1);
-    console.log(data);
-})
-
-    .always(function () {
-        console.log('load success');
-    });
+    let gotData=JSON.parse(data.dataSets.value);
+    for(let key in gotData){
+        let $div=$("<div id='"+key+"'></div>");
+        let $label=$("<div>"+gotData[key]['label']+"</div>");
+        let $posWrap=$("<div></div>");
+        $('div.indexClass').append($div);
+        $div.append($label);
+        $div.append($posWrap);
+        for (let i in gotData[key]['data']){
+            let $position=$("<div></div>");
+            let $xpos=$("<span>"+"X 좌표"+gotData[key]['data'][i]['x']+"</span>");
+            let $ypos=$("<span>"+" Y 좌표"+gotData[key]['data'][i]['y']+"</span>");
+            $position.append($xpos);
+            $position.append($ypos);
+            $posWrap.append($position);
+        }
+        $div.append("<br/>");
+    }
+    console.log(gotData);
+    
+});
 
 
 

@@ -12,7 +12,8 @@ $.ajax({
     data: '',
     type: "get"
 }).done(function (data) {
-    console.log(data['label']);
+    console.log(1);
+    console.log(data);
 })
 
     .always(function () {

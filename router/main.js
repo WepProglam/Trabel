@@ -3,13 +3,16 @@ var app=express();
 const bodyParser= require('body-parser');
 const { json } = require('body-parser');
 const { start } = require('repl');
-const dataSets=require('../listing/listingMain').dataSets;
-
+let dataSets=require('../listing/listingMain').dataSets;
+let appK=require('../app/appKey').appKey;
 
 app.use(bodyParser.json());
-let data;
+
 let coor;
-module.exports=data;
+
+let appKey={'key':appK};
+
+dataSets={'value':dataSets};
 //라우팅 설정
 
 /*
@@ -28,17 +31,16 @@ module.exports=function(app)
         res.render('1_trabel.html');
     }),
     app.get('/place',function(req,res){
-        res.render('2_trabel.html');
+        res.render('2_trabel.html',{appKey});
     }),
     app.get('/final',function(req,res){
-        res.render('3_trabel.html');
+        res.render('3_trabel.html',{appKey});
     }),
     app.get('/show',function(req,res){
         res.send(data);
     }),
     app.get('/a',function(req,res){
-        res.send(dataSets);
-        res.render('4_trabel.html');
+        res.render('4_trabel.html',{dataSets});
     }),
     app.all('/server',function(req,res){
         data=req.query;
@@ -64,16 +66,6 @@ function getData(data){
             //console.log(bar.slice(0,index+1));
         }
 
-    }
-
-    /*for (let key in coor){
-        console.log(coor[key]);
-    }
-    console.log(coor);*/
-
-
-    
-
-    
+    }  
     return data;
 }

@@ -20,7 +20,7 @@ let dataSets=[];
 let smallData=[];
 let colorSets=['rgba(255,0,0,0.4)','rgba(0,255,0,0.4)','rgba(0,0,255,0.4)','rgb(125,125,0,0.4)','rgba(125,0,125,0.4)','rgba(0,125,125,0.4)','rgba(255,75,75,0.4)'];
 
-let infoNum=50;
+let infoNum=20;
 
 
 
@@ -37,7 +37,7 @@ function makeTag() {
         };
         let name = 'name';
         let item = new Block(name, latlng, i);
-        //console.log(latlng);
+
         positions.push(item);
     }
     drawGraph(positions);
@@ -52,17 +52,17 @@ db2의 형식
 ]
 */
 function drawGraph(positions){
-    //console.log(positions);
+
     let db = [];
     for (let key in positions) {
         let obj = new Object;
         obj.x = positions[key]['latlng']['x'];
         obj.y = positions[key]['latlng']['y'];
-        obj.index = positions[key]['index'];
+        obj.index=key;
         db.push(obj);
     }
     let db2 = db;
-    //console.log(db);
+
     db2 = sort(db2);
 }
 
@@ -74,22 +74,32 @@ function sort(db2) {
     let db3 = [];
     let dot1, dot2, dot3;
     for (let key in db2) {
-        yarray.push(db2[key]['y']);
+        let miniObj={
+            y: db2[key]['y'],
+            index: db2[key]['index']
+        };
+        yarray.push(miniObj);
     }
 
-    initDot = new makeDot(yarray.indexOf(Math.min.apply(null, yarray)), db2);
+    yarray.sort(function(a,b){
+        return a.y<b.y ? -1 : a.y>b.y?1:0;
+    });
+
+    initDot = new makeDot(yarray[0]['index'], db2);
     seq = findSeq(initDot, db2);
     db3.push(initDot);
     secondDot = new makeDot(seq[0]['index'], db2);
     db3.push(secondDot);
     let i = 1;
     let j;
+
     while (i < seq.length - 1) {
         dot2 = db3.pop();
         dot1 = db3.pop();
         db3.push(dot1);
         db3.push(dot2);
         dot3 = new makeDot(seq[i]['index'], db2);
+
         if (mod.ccw(dot1, dot2, dot3) > 0) {
             db3.push(dot3);
         }
@@ -107,12 +117,10 @@ function sort(db2) {
         }
         i++;
     }
-    blueDot=db3;
-
-    
+    blueDot=db3; 
+       
     findAndMergeNearestBlue(redDot,blueDot);
-    console.log(blueDot);
-    console.log(redDot);
+
     let iten={
         label: 'Border',
         data: blueDot,
@@ -136,6 +144,7 @@ function makeGraphData(blueData,k,label){
     let omg;
     smallData.push(blueData);
     let length=blueData['subCounting'];
+
     for(let i=0;i<length;i++){
         smallData.push(blueData['sub'][i]);
     }

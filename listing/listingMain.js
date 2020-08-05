@@ -20,6 +20,7 @@ let dataSets=[];
 let smallData=[];
 let colorSets=['rgba(255,0,0,0.4)','rgba(0,255,0,0.4)','rgba(0,0,255,0.4)','rgb(125,125,0,0.4)','rgba(125,0,125,0.4)','rgba(0,125,125,0.4)','rgba(255,75,75,0.4)'];
 
+//여행지 개수 설정
 let infoNum=20;
 
 

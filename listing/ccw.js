@@ -45,6 +45,7 @@ exports.findAndMergeNearestBlue=function(redDot,blueDot){
  
     }
 
+    return blueDot;
 }
 
 //거리 계산 함수
@@ -68,7 +69,7 @@ exports.findSeq= function(startDot, db2) {
             cal = -0.000000000000000000000000000001;
         }
         let block = new Object;
-        block.index = key;
+        block.index = db2[key]['index'];
         block.cal = cal;
         arcTan.push(block);
     }
@@ -99,3 +100,4 @@ exports.findSeq= function(startDot, db2) {
 
     return arcTan;
 }
+

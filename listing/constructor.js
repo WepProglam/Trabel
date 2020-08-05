@@ -1,8 +1,12 @@
+var findIndexArray=require('./findIndexArray');
+let findIndex=findIndexArray.findIndex;
+
 //점 객체 생성자 함수
-exports.makeDot=function(key, obj,subthings) {
-    this.x = obj[key]['x'];
-    this.y = obj[key]['y'];
-    this.index = obj[key]['index'];
+exports.makeDot=function(key,obj,subthings) {
+    let k=findIndex(obj,key);
+    this.x = obj[k]['x'];
+    this.y = obj[k]['y'];
+    this.index=key;
     this.sub=[];
     if (subthings>0){
         this.subCounting=subthings;
@@ -10,7 +14,7 @@ exports.makeDot=function(key, obj,subthings) {
     else{
         this.subCounting=0;
     }
-    
+   // console.log(this);
 }
 
 

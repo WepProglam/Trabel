@@ -1,6 +1,8 @@
 var constructor=require('./constructor');
-let makeDot=constructor.makeDot;
+var findIndexArray=require('./findIndexArray');
 
+let makeDot=constructor.makeDot;
+let findIndex=findIndexArray.findIndex;
 
 exports.ccw= function(dot1, dot2, dot3) {
     x1 = dot1['x']; x2 = dot2['x']; x3 = dot3['x'];
@@ -26,20 +28,23 @@ exports.findAndMergeNearestBlue=function(redDot,blueDot){
     let short;
     let subCount;
     for(let key in redDot){
-        dis=new makeMerge(displace(redDot[key],blueDot[0]),key,0);
+        dis=new makeMerge(displace(redDot[key],blueDot[0]),redDot[key]['index'],blueDot[0]['index']);
         for(let index in blueDot){
             short=displace(redDot[key],blueDot[index]);
             if(short<=dis.distance){
-                dis=new makeMerge(displace(redDot[key],blueDot[index]),key,index);
+                dis=new makeMerge(short,redDot[key]['index'],blueDot[index]['index']);
             }
         }
-        subCount=(blueDot[dis.blueIndex]['sub']).length+1;
-        let block=new makeDot(dis.redIndex,redDot);
-        //console.log(block);
-        blueDot[dis.blueIndex]['subCounting']=subCount;
-        blueDot[dis.blueIndex]['sub'].push(block);
+         
+        let block=new makeDot(dis['redIndex'],redDot);
+    
+        let i=findIndex(blueDot,dis.blueIndex);
+        subCount=(blueDot[i]['sub']).length+1;
+        blueDot[i]['subCounting']=subCount;
+        blueDot[i]['sub'].push(block);
+ 
     }
-    //console.log(blueDot);
+
 }
 
 //거리 계산 함수
@@ -63,7 +68,7 @@ exports.findSeq= function(startDot, db2) {
             cal = -0.000000000000000000000000000001;
         }
         let block = new Object;
-        block.index = db2[key]['index'];
+        block.index = key;
         block.cal = cal;
         arcTan.push(block);
     }

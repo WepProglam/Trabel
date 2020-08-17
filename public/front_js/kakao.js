@@ -144,7 +144,7 @@ function getListItem(index, places) {
     var el = document.createElement('span'),
         itemStr = '<div class="markerbg marker_' + index  + '">' +
 
-            '   <h5 xpos="'+ (places.x)+'" ypos="'+(places.y)+'" onclick="makealert(this);">' + places.place_name + '</h5></div>';
+            '   <h5 xpos="'+ (places.x)+'" ypos="'+(places.y)+'" onclick="showRange();makealert(this);">' + places.place_name + '</h5></div>';
 
 
 
@@ -242,33 +242,7 @@ function removeAllChildNods(el) {
 }
 
 
-function makealert(self) {
-    let target = document.getElementById('preList');
 
-    let index = target.children.length + 1;
-    let xpos=self.getAttribute('xpos');
-    let ypos=self.getAttribute('ypos');
-
-    element = document.createElement('div'),
-        itemStr = '<div class="pre_' + index + '">'
-        + '<h5 class="travel_list" xpos="'+xpos+'" ypos="'+ypos+'">' + self['innerText'] + '</h5>' + '</div>';
-    element.innerHTML = itemStr;
-    element.className = 'preItem';
-
-
-    let cancel = document.createElement('div'),
-        item = '<button class="cancelButton" onclick="cancel(this);">X</button>';
-
-    cancel.innerHTML = item;
-    cancel.className = 'cancel';
-    target.appendChild(element);
-    element.appendChild(cancel);
-}
-
-function cancel(self) {
-    self.parentNode.parentNode.remove();
-
-}
 
 let travelList = new Object;
 function getInfo(self) {

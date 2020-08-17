@@ -58,9 +58,16 @@ input:focus {
     outline:none;
 }
 
-/*3.css*/
+/*2.css*/
 
+div.timeButton{
+    display: grid;
+    grid-template-columns: 100px 100px;
+}
 
+button.when{
+    background-color:white;
+}
 
 
 

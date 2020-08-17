@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/2_trabel.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="front_js/colors.js"></script>
+    <script src="front_js/2_trabel.js"></script>
 
 </head>
 
@@ -47,6 +48,32 @@
         </div>
         
     </div>
+    <div id="moreInfo" style="visibility: hidden">
+        <form action="" method="" onKeyDown="if(event.keyCode == 13) {return false;}" onsubmit="Cookie()">
+            <div class="range" >
+                <input type="range" name="amountRange" class="input_days" min="0" max="240" value="0"
+                    oninput="this.form.amountOutput.value=this.value">
+                <div class="output">
+                    <output name="amountOutput" class="time">0</output> <span>분</span>
+                </div>
+            </div>
+        </form>
+        <div class="timeButton">
+        <button class="when" active="false" onclick="manageActive(this);">일출</button>
+            <button class="when" active="false" onclick="manageActive(this);">아침</button>
+            <button class="when" active="false" onclick="manageActive(this);">오전</button>
+            <button class="when" active="false" onclick="manageActive(this);">점심</button>
+            <button class="when" active="false" onclick="manageActive(this);">오후</button>
+            <button class="when" active="false" onclick="manageActive(this);">일몰</button>
+            <button class="when" active="false" onclick="manageActive(this);">저녁</button>
+            <button class="when" active="false" onclick="manageActive(this);">밤</button>
+        </div>
+
+        <button class="submitSeveral" onclick="addOnHtml();">
+            선택 완료
+        </button>
+    </div>
+
 
     <div id="submit">
         <a ><button id="setcookie" value="0" onclick="getInfo();">
